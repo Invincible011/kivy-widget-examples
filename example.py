@@ -24,7 +24,20 @@ class WidgetGalaxy(GridLayout):
     
     def on_text_validate(self,widget):
         self.text_input_str = widget.text
+    
+    def on_button_reset_count(self):
+        self.counter = 1
+        self.my_text = str(self.counter) 
+    
+    def on_button_reset_slider(self):
+        self.ids.slide.text = str("0")
+        self.ids.my_slider.value = 0
         
+    def on_button_reset_details(self):
+        self.text_input_str = ""
+        self.ids.my_text_input.text = ""
+        if self.ids.my_text_input.text == "":
+            self.ids.my_text_input.hint_text = self.ids.my_text_input.hint_text
         
 class WidgetExample(App):
     def build(self):
